@@ -21,4 +21,4 @@ Data Source: https://www.kaggle.com/c/ncaam-march-mania-2021/data
 
 ## 2022's Predictions
 Some of these results are... interesting. 
-![2022 March Madness Predictions](2022.jpg)
+![2022 March Madness Predictions](/2022.png)
