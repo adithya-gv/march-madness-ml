@@ -179,17 +179,19 @@ actual_data = pd.read_csv("data/test.csv")[["TeamID", "Season", "Seed"]].to_nump
 for team in actual_data:
     team[2] = int(team[2][1:3])
 
+year = 2023
+
 # get 2023 teams
 team_list = []
 for team in actual_data:
-    if team[1] == 2023:
+    if team[1] == year:
         team_list.append(team[0])
 
 # get 2023 stats
 stats_2023 = {}
 for team in team_list:
     try:
-        stats_2023[team] = statsMap[team][2023]
+        stats_2023[team] = statsMap[team][year]
     except:
         continue
 

@@ -33,8 +33,13 @@ First, I ran it using the 2022 version of the model.
 Then, I ran it using the 2023 version of the model.
 ![2023 March Madness Predictions](/2023-23.png)
 
+The two will compete this year.
+
 ## 2022's Prediction Recap!
 So, this is what the model predicted.
 ![2022 March Madness Predictions](/2022.png)
 The actual results weren't that great. Out of a possible 192 points, the model scored a low 56.
+
+For fun, the 2023 model was also ran on the 2022 bracket, as an evaluatory metric. This model scored 76/192 points, 
+which is a 35% improvement. The biggest improvement came in the fact that it correctly picked Kansas making the final which gave it a huge boost in score. On the contrary, the 2023 model was a lot more conservative in picking upsets, and so it was heavily penalized in the second round and Sweet Sixteen.
 
