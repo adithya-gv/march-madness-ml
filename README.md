@@ -17,6 +17,10 @@ the results of the 80 games to make its final bracket.
 ## Future Improvements
 For the 2024 model, the primary area of focus is to consider strength of schedule, as well as strength of opponent play. Another area that is also being considered is to consider more stats, such as rebounding, assisting, efficiency, turnovers, steals, and blocks. This could make a more enriching dataset for the model.
 
+In addition, different models (instead of just fully connected neural nets) are also being considered, such as decision trees, support vector machines, and random forests. This could result in some interesting comparisons and results.
+
+Finally, if time permits, exploring recurrent neural networks is also a possibility. This could in theory use previous games in the current tournament to predict future results.
+
 ## Technologies Used
 The project is developed in Python 3
 - Pandas: Data Importing

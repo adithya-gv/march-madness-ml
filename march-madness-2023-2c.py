@@ -182,9 +182,11 @@ year = 2023
 
 # get 2023 teams
 team_list = []
+seed_list = []
 for team in actual_data:
     if team[1] == year:
         team_list.append(team[0])
+        seed_list.append(team[2])
 
 # get 2023 stats
 stats_2023 = {}
@@ -196,102 +198,6 @@ for team in team_list:
 
 
 """
-FIRST ROUND
-"""
-
-# build matchup list
-matchups = []
-seeds = []
-for i in range(0, 64, 16):
-    k = 0
-    for j in range(i, i + 8):
-        matchups.append([team_list[j], team_list[i + 15 - k]])
-        seeds.append([k + 1, 16 - k])
-        k = k + 1
-
-
-
-# build dataset
-dataset = []
-for matchup in matchups:
-    wSeed = seeds[matchups.index(matchup)][0]
-    lSeed = seeds[matchups.index(matchup)][1]
-    wStats = statsMap[matchup[0]][year]
-    lStats = statsMap[matchup[1]][year]
-
-    features = [wSeed, lSeed, wStats[0], lStats[0], wStats[1], lStats[1], wStats[2], lStats[2], wStats[3], lStats[3]]
-    
-    dataset.append(features)
-
-dataset = np.array(dataset)
-dataset = dataset.astype(np.float32)
-
-# make tensor
-dataset = torch.from_numpy(dataset)
-
-# make predictions
-alive_teams = [] 
-alive_seeds = []
-with torch.no_grad():
-    i = 0
-    for features in dataset:
-        output = model(features)
-        team = torch.argmax(output).item()
-        alive_teams.append(matchups[i][team])
-        alive_seeds.append(seeds[i][team])
-        i = i + 1
-
-print(alive_teams)
-print(alive_seeds)
-
-"""
-SECOND ROUND
-"""
-
-# build next round of matchups
-matchups = []
-seeds = []
-for i in range(0, 32, 8):
-    k = 0
-    for j in range(i, i + 4):
-        matchups.append([alive_teams[j], alive_teams[i + 7 - k]])
-        seeds.append([alive_seeds[j], alive_seeds[i + 7 - k]])
-        k = k + 1
-
-# build dataset
-dataset = []
-for matchup in matchups:
-    wSeed = seeds[matchups.index(matchup)][0]
-    lSeed = seeds[matchups.index(matchup)][1]
-    wStats = statsMap[matchup[0]][year]
-    lStats = statsMap[matchup[1]][year]
-
-    features = [wSeed, lSeed, wStats[0], lStats[0], wStats[1], lStats[1], wStats[2], lStats[2], wStats[3], lStats[3]]
-    
-    dataset.append(features)
-
-dataset = np.array(dataset)
-dataset = dataset.astype(np.float32)
-
-# make tensor
-dataset = torch.from_numpy(dataset)
-
-# make predictions
-alive_teams = []
-alive_seeds = []
-with torch.no_grad():
-    i = 0
-    for features in dataset:
-        output = model(features)
-        team = torch.argmax(output).item()
-        alive_teams.append(matchups[i][team])
-        alive_seeds.append(seeds[i][team])
-        i = i + 1
-
-print(alive_teams)
-print(alive_seeds)
-
-"""
 SWEET SIXTEEN
 """
 
@@ -300,10 +206,13 @@ matchups = []
 seeds = []
 for i in range(0, 16, 4):
     k = 0
-    for j in range(i, i + 2):
-        matchups.append([alive_teams[j], alive_teams[i + 3 - k]])
-        seeds.append([alive_seeds[j], alive_seeds[i + 3 - k]])
+    for j in range(i, i + 4, 2):
+        matchups.append([team_list[j], team_list[j + 1]])
+        seeds.append([seed_list[j], seed_list[j + 1]])
         k = k + 1
+
+print(matchups)
+print(seeds)
 
 # build dataset
 dataset = []
