@@ -76,7 +76,7 @@ picking some rather interesting and unexpected upsets. However, the model still 
 
 In general, due to the nature of these models differing in the way they pick upsets, some form of ensemble model could work as one of the 2024 models.
 
-For fun, the 2024 model was ran on the 2023 bracket, as an evaluatory metric. This model scored a ridiculous 119/192 possible points, which is a whopping 102% increase in performance over last year! The biggest improvement came in the fact that due to the 
+For fun, the 2024 model was ran on the 2023 bracket, as an evaluatory metric. This model scored a ridiculous 119/192 points, which is a whopping 102% increase in performance over last year! The biggest improvement came in the fact that due to the 
 nature of the advanced statistics being used, the increase in datasets, and the larger size of the model, it was able to more reliablty pick upsets in earlier rounds, which strongly benefitted it in later rounds. 
 In fact, it had Florida Atlantic making the Final Four, which, as a 9 seed, is HIGHLY unlikely. Furthermore, it correctly identified the 5-seed San Diego State making the Championship, which again, is rather rare. The fact that the model picked these two upsets shows that the new datasets and the deeper model help improve performance dramatically.
 
