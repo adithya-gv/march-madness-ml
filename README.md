@@ -11,7 +11,7 @@ Over the years, I've evolved from simple neural networks evaluating seed, to mor
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
 the model also takes in various advanced stats calculated by KenPom and HeatCheck. This data was sourced from Kaggle at the following [link](https://www.kaggle.com/datasets/nishaanamin/march-madness-data). Overall, each team now has 102 datapoints 
-associated with it. In addition, when the model was fed in 
+associated with it. In addition, when the datapoints was being constructed for the model, each datapoint was given twice, once in the form of (Team A, Team B, Team B Win Status) and (Team B, Team A, Team A Win Status), to capture and dissuade any trend of picking the first entry in each set (as each match was always structured in high seed, followed by low seed).
 
 Thank you to [KenPom](https://kenpom.com/) and [HeatCheck](https://heatcheckcbb.com/) for the data!
 
