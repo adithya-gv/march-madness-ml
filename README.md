@@ -30,7 +30,9 @@ the results of the 80 games to make its final bracket.
 
 ## Stats
 2022 Model: 2 Layers, Vanilla Architecture, 880 parameters
+
 2023 Model: 3 Layers, Vanilla Architecture, 1272 parameters
+
 2024 Model: 4 Layers, Vanilla Architecture, 345425 parameters
 
 ## Future Improvements
