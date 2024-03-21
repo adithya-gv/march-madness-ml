@@ -1,6 +1,10 @@
 # The Annual March Madness Neural Network Challenge
 Every year I give myself 6 hours to hack together a neural network (including data processing) to predict the outcome of 
-the march madness bracket each year.
+the March Madness bracket each year. This challenge has evolved from something rather simple when I first started it into 2022, to an investigation on the power of machine learning models, and how different models have their strengths and limitations in predicting an event with both deterministic and stochastic events. 
+
+March Madness as a whole presents a really intriguting challenge for probabilistic and statistical sports modeling, due to the sport's basis on cold numbers and the fact that one team typically is better than the other, while also enabling randomness due to its one-and-done nature.
+
+Over the years, I've evolved from simple neural networks evaluating seed, to more complex neural networks taking in statistical information. The current model uses over 100 advanced statistics over both regular season and tournament matches to capture the most data and trends amongst March Madness over the years.
 
 ## Current Methodology
 
@@ -47,6 +51,9 @@ Data Source 2022/2023: https://www.kaggle.com/competitions/march-machine-learnin
 ## 2024's Predictions
 Due to time, only the 2024 version of the model was ran.
 ![2024 March Madness Predictions](/2024.png)
+
+For even more fun, I also ran this year's bracket through both [ChatGPT](https://chat.openai.com/) and [Claude](https://claude.ai/).
+Their brackets are shown [here](https://fantasy.espn.com/tc/sharer?challengeId=240&from=espn&context=CHAMPION_PICK&entryId=498b8d70-e74b-11ee-a97a-352ad3702aa6&outcomeId=a497b9a1-c12d-11ee-b568-d9cd047f74cf&propositionId=a497b980-c12d-11ee-b568-d9cd047f74cf) and [here](https://fantasy.espn.com/tc/sharer?challengeId=240&from=espn&context=CHAMPION_PICK&entryId=e43874e0-e74c-11ee-a97a-352ad3702aa6&outcomeId=a497b9b7-c12d-11ee-b568-d9cd047f74cf&propositionId=a497b980-c12d-11ee-b568-d9cd047f74cf) respectively. With the explosion of LLMs over the last year, I wanted to see how well general purpose models would perform when compared to a specially statistically trained model.
 
 ## 2023's Predictions
 First, I ran it using the 2022 version of the model.
