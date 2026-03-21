@@ -71,6 +71,8 @@ the results of the 80 games to make its final bracket.
 
 2024 Model: 4 Layers, Vanilla Architecture, 345425 parameters
 
+2026 NN Model: 4 Layers, Vanilla Archiceture,  101184 parameters
+
 ## Future Improvements
 Due to lack of time in 2024, many of the ensemble techniques that I wanted to explore this year were unused. In 2025, I plan to revisit using ensembles and non-deep models, perhaps some combination of the two involving simulations to take into account the probabilities outputed by the model. In general, the actual model architecture seems rather well optimized, and aside from hyperparameter tuning, it seems like the way to progress is through pipelining, expert advice, and other multi-model approaches.
 
@@ -82,6 +84,8 @@ The project is developed in Python 3
 - Numpy: Data Manipulation
 - PyTorch: Neural Network Training for 2023/2024 Model
 - Tensorflow: Neural Network Training for 2022 Model
+
+Data Source for 2026: https://www.kaggle.com/datasets/nishaanamin/march-madness-data
 
 Data Source for 2024: https://www.kaggle.com/datasets/nishaanamin/march-madness-data
 
