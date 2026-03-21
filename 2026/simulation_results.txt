@@ -1,0 +1,378 @@
+2026 March Madness Tournament Simulation
+Bracket: 32 R64 slots, 4 play-in games
+
+============================================================
+  Logistic Regression
+============================================================
+
+  First Four
+  ----------------------------------------
+                  Lehigh  vs  Prairie View A&M     >>>>
+      North Carolina St. >>>>  vs  Texas               
+                  Howard  vs  UMBC                 >>>>
+                     SMU  vs  Miami OH             >>>>
+
+  Round of 64
+  ----------------------------------------
+                    Duke >>>>  vs  Siena               
+                Ohio St. >>>>  vs  TCU                 
+              St. John's  vs  Northern Iowa        >>>>
+                  Kansas >>>>  vs  Cal Baptist         
+              Louisville  vs  South Florida        >>>>
+            Michigan St. >>>>  vs  North Dakota St.    
+                    UCLA >>>>  vs  UCF                 
+             Connecticut >>>>  vs  Furman              
+                 Florida >>>>  vs  Prairie View A&M    
+                 Clemson  vs  Iowa                 >>>>
+              Vanderbilt  vs  McNeese St.          >>>>
+                Nebraska >>>>  vs  Troy                
+          North Carolina >>>>  vs  VCU                 
+                Illinois >>>>  vs  Penn                
+            Saint Mary's >>>>  vs  Texas A&M           
+                 Houston >>>>  vs  Idaho               
+                 Arizona >>>>  vs  LIU Brooklyn        
+               Villanova >>>>  vs  Utah St.            
+               Wisconsin >>>>  vs  High Point          
+                Arkansas >>>>  vs  Hawaii              
+                     BYU >>>>  vs  North Carolina St.  
+                 Gonzaga >>>>  vs  Kennesaw St.        
+                Miami FL >>>>  vs  Missouri            
+                  Purdue >>>>  vs  Queens              
+                Michigan >>>>  vs  UMBC                
+                 Georgia  vs  Saint Louis          >>>>
+              Texas Tech >>>>  vs  Akron               
+                 Alabama >>>>  vs  Hofstra             
+               Tennessee >>>>  vs  Miami OH            
+                Virginia >>>>  vs  Wright St.          
+                Kentucky  vs  Santa Clara          >>>>
+                Iowa St. >>>>  vs  Tennessee St.       
+
+  Round of 32
+  ----------------------------------------
+                    Duke >>>>  vs  Ohio St.            
+           Northern Iowa  vs  Kansas               >>>>
+           South Florida  vs  Michigan St.         >>>>
+                    UCLA  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Iowa                
+             McNeese St. >>>>  vs  Nebraska            
+          North Carolina  vs  Illinois             >>>>
+            Saint Mary's  vs  Houston              >>>>
+                 Arizona >>>>  vs  Villanova           
+               Wisconsin  vs  Arkansas             >>>>
+                     BYU  vs  Gonzaga              >>>>
+                Miami FL  vs  Purdue               >>>>
+                Michigan >>>>  vs  Saint Louis         
+              Texas Tech >>>>  vs  Alabama             
+               Tennessee  vs  Virginia             >>>>
+             Santa Clara  vs  Iowa St.             >>>>
+
+  Sweet 16
+  ----------------------------------------
+                    Duke >>>>  vs  Kansas              
+            Michigan St.  vs  Connecticut          >>>>
+                 Florida >>>>  vs  McNeese St.         
+                Illinois  vs  Houston              >>>>
+                 Arizona  vs  Arkansas             >>>>
+                 Gonzaga  vs  Purdue               >>>>
+                Michigan >>>>  vs  Texas Tech          
+                Virginia  vs  Iowa St.             >>>>
+
+  Elite 8
+  ----------------------------------------
+                    Duke >>>>  vs  Connecticut         
+                 Florida  vs  Houston              >>>>
+                Arkansas  vs  Purdue               >>>>
+                Michigan >>>>  vs  Iowa St.            
+
+  Final Four
+  ----------------------------------------
+                    Duke  vs  Houston              >>>>
+                  Purdue  vs  Michigan             >>>>
+
+  Championship
+  ----------------------------------------
+                 Houston >>>>  vs  Michigan            
+
+  CHAMPION: Houston
+
+============================================================
+  Random Forest
+============================================================
+
+  First Four
+  ----------------------------------------
+                  Lehigh >>>>  vs  Prairie View A&M    
+      North Carolina St. >>>>  vs  Texas               
+                  Howard  vs  UMBC                 >>>>
+                     SMU  vs  Miami OH             >>>>
+
+  Round of 64
+  ----------------------------------------
+                    Duke >>>>  vs  Siena               
+                Ohio St. >>>>  vs  TCU                 
+              St. John's >>>>  vs  Northern Iowa       
+                  Kansas >>>>  vs  Cal Baptist         
+              Louisville >>>>  vs  South Florida       
+            Michigan St. >>>>  vs  North Dakota St.    
+                    UCLA >>>>  vs  UCF                 
+             Connecticut >>>>  vs  Furman              
+                 Florida >>>>  vs  Lehigh              
+                 Clemson >>>>  vs  Iowa                
+              Vanderbilt >>>>  vs  McNeese St.         
+                Nebraska >>>>  vs  Troy                
+          North Carolina >>>>  vs  VCU                 
+                Illinois >>>>  vs  Penn                
+            Saint Mary's >>>>  vs  Texas A&M           
+                 Houston >>>>  vs  Idaho               
+                 Arizona >>>>  vs  LIU Brooklyn        
+               Villanova >>>>  vs  Utah St.            
+               Wisconsin >>>>  vs  High Point          
+                Arkansas >>>>  vs  Hawaii              
+                     BYU  vs  North Carolina St.   >>>>
+                 Gonzaga >>>>  vs  Kennesaw St.        
+                Miami FL >>>>  vs  Missouri            
+                  Purdue >>>>  vs  Queens              
+                Michigan >>>>  vs  UMBC                
+                 Georgia  vs  Saint Louis          >>>>
+              Texas Tech >>>>  vs  Akron               
+                 Alabama >>>>  vs  Hofstra             
+               Tennessee >>>>  vs  Miami OH            
+                Virginia >>>>  vs  Wright St.          
+                Kentucky >>>>  vs  Santa Clara         
+                Iowa St. >>>>  vs  Tennessee St.       
+
+  Round of 32
+  ----------------------------------------
+                    Duke >>>>  vs  Ohio St.            
+              St. John's  vs  Kansas               >>>>
+              Louisville  vs  Michigan St.         >>>>
+                    UCLA  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Clemson             
+              Vanderbilt >>>>  vs  Nebraska            
+          North Carolina  vs  Illinois             >>>>
+            Saint Mary's  vs  Houston              >>>>
+                 Arizona >>>>  vs  Villanova           
+               Wisconsin  vs  Arkansas             >>>>
+      North Carolina St.  vs  Gonzaga              >>>>
+                Miami FL  vs  Purdue               >>>>
+                Michigan >>>>  vs  Saint Louis         
+              Texas Tech  vs  Alabama              >>>>
+               Tennessee  vs  Virginia             >>>>
+                Kentucky  vs  Iowa St.             >>>>
+
+  Sweet 16
+  ----------------------------------------
+                    Duke >>>>  vs  Kansas              
+            Michigan St.  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Vanderbilt          
+                Illinois  vs  Houston              >>>>
+                 Arizona >>>>  vs  Arkansas            
+                 Gonzaga  vs  Purdue               >>>>
+                Michigan >>>>  vs  Alabama             
+                Virginia  vs  Iowa St.             >>>>
+
+  Elite 8
+  ----------------------------------------
+                    Duke >>>>  vs  Connecticut         
+                 Florida  vs  Houston              >>>>
+                 Arizona >>>>  vs  Purdue              
+                Michigan >>>>  vs  Iowa St.            
+
+  Final Four
+  ----------------------------------------
+                    Duke >>>>  vs  Houston             
+                 Arizona  vs  Michigan             >>>>
+
+  Championship
+  ----------------------------------------
+                    Duke >>>>  vs  Michigan            
+
+  CHAMPION: Duke
+
+============================================================
+  XGBoost
+============================================================
+
+  First Four
+  ----------------------------------------
+                  Lehigh  vs  Prairie View A&M     >>>>
+      North Carolina St. >>>>  vs  Texas               
+                  Howard  vs  UMBC                 >>>>
+                     SMU  vs  Miami OH             >>>>
+
+  Round of 64
+  ----------------------------------------
+                    Duke >>>>  vs  Siena               
+                Ohio St.  vs  TCU                  >>>>
+              St. John's  vs  Northern Iowa        >>>>
+                  Kansas >>>>  vs  Cal Baptist         
+              Louisville >>>>  vs  South Florida       
+            Michigan St. >>>>  vs  North Dakota St.    
+                    UCLA >>>>  vs  UCF                 
+             Connecticut >>>>  vs  Furman              
+                 Florida >>>>  vs  Prairie View A&M    
+                 Clemson  vs  Iowa                 >>>>
+              Vanderbilt  vs  McNeese St.          >>>>
+                Nebraska >>>>  vs  Troy                
+          North Carolina >>>>  vs  VCU                 
+                Illinois >>>>  vs  Penn                
+            Saint Mary's >>>>  vs  Texas A&M           
+                 Houston >>>>  vs  Idaho               
+                 Arizona >>>>  vs  LIU Brooklyn        
+               Villanova >>>>  vs  Utah St.            
+               Wisconsin >>>>  vs  High Point          
+                Arkansas >>>>  vs  Hawaii              
+                     BYU  vs  North Carolina St.   >>>>
+                 Gonzaga >>>>  vs  Kennesaw St.        
+                Miami FL >>>>  vs  Missouri            
+                  Purdue >>>>  vs  Queens              
+                Michigan >>>>  vs  UMBC                
+                 Georgia  vs  Saint Louis          >>>>
+              Texas Tech >>>>  vs  Akron               
+                 Alabama >>>>  vs  Hofstra             
+               Tennessee >>>>  vs  Miami OH            
+                Virginia >>>>  vs  Wright St.          
+                Kentucky >>>>  vs  Santa Clara         
+                Iowa St. >>>>  vs  Tennessee St.       
+
+  Round of 32
+  ----------------------------------------
+                    Duke >>>>  vs  TCU                 
+           Northern Iowa  vs  Kansas               >>>>
+              Louisville  vs  Michigan St.         >>>>
+                    UCLA  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Iowa                
+             McNeese St. >>>>  vs  Nebraska            
+          North Carolina  vs  Illinois             >>>>
+            Saint Mary's  vs  Houston              >>>>
+                 Arizona >>>>  vs  Villanova           
+               Wisconsin  vs  Arkansas             >>>>
+      North Carolina St.  vs  Gonzaga              >>>>
+                Miami FL  vs  Purdue               >>>>
+                Michigan >>>>  vs  Saint Louis         
+              Texas Tech  vs  Alabama              >>>>
+               Tennessee  vs  Virginia             >>>>
+                Kentucky  vs  Iowa St.             >>>>
+
+  Sweet 16
+  ----------------------------------------
+                    Duke >>>>  vs  Kansas              
+            Michigan St. >>>>  vs  Connecticut         
+                 Florida >>>>  vs  McNeese St.         
+                Illinois  vs  Houston              >>>>
+                 Arizona >>>>  vs  Arkansas            
+                 Gonzaga >>>>  vs  Purdue              
+                Michigan >>>>  vs  Alabama             
+                Virginia  vs  Iowa St.             >>>>
+
+  Elite 8
+  ----------------------------------------
+                    Duke >>>>  vs  Michigan St.        
+                 Florida >>>>  vs  Houston             
+                 Arizona >>>>  vs  Gonzaga             
+                Michigan >>>>  vs  Iowa St.            
+
+  Final Four
+  ----------------------------------------
+                    Duke >>>>  vs  Florida             
+                 Arizona >>>>  vs  Michigan            
+
+  Championship
+  ----------------------------------------
+                    Duke  vs  Arizona              >>>>
+
+  CHAMPION: Arizona
+
+============================================================
+  NeuralNet
+============================================================
+
+  First Four
+  ----------------------------------------
+                  Lehigh >>>>  vs  Prairie View A&M    
+      North Carolina St. >>>>  vs  Texas               
+                  Howard >>>>  vs  UMBC                
+                     SMU >>>>  vs  Miami OH            
+
+  Round of 64
+  ----------------------------------------
+                    Duke >>>>  vs  Siena               
+                Ohio St. >>>>  vs  TCU                 
+              St. John's >>>>  vs  Northern Iowa       
+                  Kansas >>>>  vs  Cal Baptist         
+              Louisville >>>>  vs  South Florida       
+            Michigan St. >>>>  vs  North Dakota St.    
+                    UCLA >>>>  vs  UCF                 
+             Connecticut >>>>  vs  Furman              
+                 Florida >>>>  vs  Lehigh              
+                 Clemson  vs  Iowa                 >>>>
+              Vanderbilt >>>>  vs  McNeese St.         
+                Nebraska >>>>  vs  Troy                
+          North Carolina >>>>  vs  VCU                 
+                Illinois >>>>  vs  Penn                
+            Saint Mary's  vs  Texas A&M            >>>>
+                 Houston >>>>  vs  Idaho               
+                 Arizona >>>>  vs  LIU Brooklyn        
+               Villanova >>>>  vs  Utah St.            
+               Wisconsin >>>>  vs  High Point          
+                Arkansas >>>>  vs  Hawaii              
+                     BYU  vs  North Carolina St.   >>>>
+                 Gonzaga >>>>  vs  Kennesaw St.        
+                Miami FL >>>>  vs  Missouri            
+                  Purdue >>>>  vs  Queens              
+                Michigan >>>>  vs  Howard              
+                 Georgia >>>>  vs  Saint Louis         
+              Texas Tech >>>>  vs  Akron               
+                 Alabama >>>>  vs  Hofstra             
+               Tennessee >>>>  vs  SMU                 
+                Virginia >>>>  vs  Wright St.          
+                Kentucky >>>>  vs  Santa Clara         
+                Iowa St. >>>>  vs  Tennessee St.       
+
+  Round of 32
+  ----------------------------------------
+                    Duke >>>>  vs  Ohio St.            
+              St. John's  vs  Kansas               >>>>
+              Louisville  vs  Michigan St.         >>>>
+                    UCLA  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Iowa                
+              Vanderbilt  vs  Nebraska             >>>>
+          North Carolina >>>>  vs  Illinois            
+               Texas A&M  vs  Houston              >>>>
+                 Arizona >>>>  vs  Villanova           
+               Wisconsin  vs  Arkansas             >>>>
+      North Carolina St.  vs  Gonzaga              >>>>
+                Miami FL  vs  Purdue               >>>>
+                Michigan >>>>  vs  Georgia             
+              Texas Tech >>>>  vs  Alabama             
+               Tennessee  vs  Virginia             >>>>
+                Kentucky  vs  Iowa St.             >>>>
+
+  Sweet 16
+  ----------------------------------------
+                    Duke >>>>  vs  Kansas              
+            Michigan St.  vs  Connecticut          >>>>
+                 Florida >>>>  vs  Nebraska            
+          North Carolina  vs  Houston              >>>>
+                 Arizona >>>>  vs  Arkansas            
+                 Gonzaga  vs  Purdue               >>>>
+                Michigan >>>>  vs  Texas Tech          
+                Virginia  vs  Iowa St.             >>>>
+
+  Elite 8
+  ----------------------------------------
+                    Duke >>>>  vs  Connecticut         
+                 Florida  vs  Houston              >>>>
+                 Arizona  vs  Purdue               >>>>
+                Michigan >>>>  vs  Iowa St.            
+
+  Final Four
+  ----------------------------------------
+                    Duke >>>>  vs  Houston             
+                  Purdue  vs  Michigan             >>>>
+
+  Championship
+  ----------------------------------------
+                    Duke >>>>  vs  Michigan            
+
+  CHAMPION: Duke

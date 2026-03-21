@@ -8,6 +8,42 @@ Over the years, I've evolved from simple neural networks evaluating seed, to mor
 
 ## Current Methodology
 
+### 2026 Model
+The 2026 Model is actually a family of models, and the goal of the evaluation this year is to track and see which model performs the best in this highly statistical setting. The four models chosen for competition this year are: Logistic Regression, Random Forest, XGBoost, and a Neural Network.
+
+Specs of the Models:
+- Neural Network
+  - Input: 235 Unique Features
+  - First Layer: 256 Neurons (60,160 parameters)
+  - Second Layer: 128 Neurons (32,768 parameters)
+  - Third Layer: 64 Neurons (8,192 parmeters)
+  - Output Layer: 1 (Probabilistic Output)
+  - Total Parameter Count: 101,184 Parameters
+- XGBoost
+  - 500 Estimators
+  - Depth of 6
+- Random Forest
+  - 500 Estimators
+  - Depth of 10
+- Logistic Regression
+  - Standard Setup
+
+The data was sourced from the following [link](https://www.kaggle.com/datasets/nishaanamin/march-madness-data), thank you so much for the effort in collating it! Each team now has 234 features associated with it, and unlike previous years, the data was restructured to randomly pick a Team A and Team B when making pairs, to avoid duplicate data and feature bloating. There are now 234 unique features, from simple box scores to complex stats from KenPom and other advanced stat data sources, plus additional data on historical perfomances and AP/preseason rating. Not all data sources were used; the ones used were: AP Poll Data, Conference Play Stats, Kenpom Stats, Preseason Ranking, ESPN Resumes, Team Rankings, General Box Scores, and Z-Rating. Data from 2008-2024 was used as the training set, with 2025 as the test set.
+
+Data cleaning and boilerplate was done in assistance with Claude Code (and thanks for it; this normally takes forever becasue of the length data training scripts and writing the simulator.)
+
+Model Performance on 2025 Eval Set:
+- Logistic Regression: 84.13%, 127/192 points
+- Random Forest: 82.54%, 164/192 points
+- XGBoost: 76.19%, 155/192 points
+- Neural Network: 80.95%, 155/192 points
+
+If you're curious and want to track the performance of the models, here's the ESPN TC [link](https://fantasy.espn.com/games/tournament-challenge-bracket-2026/group?id=026a1e0d-e8fe-47ff-88bd-174d68026133).
+
+| Round | Logistic Regression | Random Forest | XGBoost | Neural Network  |
+|--|--|--|--|--|
+| First Round | 22/32 (23 points) | 25/32 (25 points) | 26/32 (26 points) | 27/32 (27 points) |
+
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
 the model also takes in various advanced stats calculated by KenPom and HeatCheck. This data was sourced from Kaggle at the following [link](https://www.kaggle.com/datasets/nishaanamin/march-madness-data). Overall, each team now has 102 datapoints 
@@ -88,4 +124,3 @@ The actual results weren't that great. Out of a possible 192 points, the model s
 
 For fun, the 2023 model was also ran on the 2022 bracket, as an evaluatory metric. This model scored 76/192 points, 
 which is a 35% improvement. The biggest improvement came in the fact that it correctly picked Kansas making the final which gave it a huge boost in score. On the contrary, the 2023 model was a lot more conservative in picking upsets, and so it was heavily penalized in the second round and Sweet Sixteen.
-
