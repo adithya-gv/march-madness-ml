@@ -91,14 +91,19 @@ Data Source for 2024: https://www.kaggle.com/datasets/nishaanamin/march-madness-
 
 Data Source 2022/2023: https://www.kaggle.com/competitions/march-machine-learning-mania-2023
 
-## 2024's Predictions
+## 2024's Prediction Recap
 Due to time, only the 2024 version of the model was ran.
 ![2024 March Madness Predictions](/2024.png)
 
 For even more fun, I also ran this year's bracket through both [ChatGPT](https://chat.openai.com/) and [Claude](https://claude.ai/).
 Their brackets are shown [here](https://fantasy.espn.com/tc/sharer?challengeId=240&from=espn&context=CHAMPION_PICK&entryId=498b8d70-e74b-11ee-a97a-352ad3702aa6&outcomeId=a497b9a1-c12d-11ee-b568-d9cd047f74cf&propositionId=a497b980-c12d-11ee-b568-d9cd047f74cf) and [here](https://fantasy.espn.com/tc/sharer?challengeId=240&from=espn&context=CHAMPION_PICK&entryId=e43874e0-e74c-11ee-a97a-352ad3702aa6&outcomeId=a497b9b7-c12d-11ee-b568-d9cd047f74cf&propositionId=a497b980-c12d-11ee-b568-d9cd047f74cf) respectively. With the explosion of LLMs over the last year, I wanted to see how well general purpose models would perform when compared to a specially statistically trained model.
 
-## 2023's Predictions
+The overall results were pretty awesome: 
+- My Custom Model scored 106/192 possible points; the best result I've gotten on this challenge! It scored in the 79th percentile, though, which is lower than the 88th percentile the 2023 model scored in 2023. This was likely beacuse the tournament was more Chalk than usual, and placing high likely meant picking upsets that very few models would pick. The overall performance is better, though, which is a great sign, and the majority of the points were likely due to the model picking the winner correctly, which awards 63 points for picking it in every one of its matches.
+- Claude scored 80/192 points, scoring in the 64th percentile.
+- ChatGPT scored 78/192 points, scoring in the 62nd percentile.
+
+## 2023's Prediction Recap
 First, I ran it using the 2022 version of the model.
 ![2023 March Madness Predictions](/2023-22.png)
 
