@@ -74,9 +74,11 @@ the results of the 80 games to make its final bracket.
 2026 NN Model: 4 Layers, Vanilla Archiceture,  101184 parameters
 
 ## Future Improvements
-Due to lack of time in 2024, many of the ensemble techniques that I wanted to explore this year were unused. In 2025, I plan to revisit using ensembles and non-deep models, perhaps some combination of the two involving simulations to take into account the probabilities outputed by the model. In general, the actual model architecture seems rather well optimized, and aside from hyperparameter tuning, it seems like the way to progress is through pipelining, expert advice, and other multi-model approaches.
+The first major step in 2027 will be to start predicting on the Women's Tournament, since data for that is now widely available to train on.
 
-In addition, reinforcement learning and recurrent neural networks are strategies worth exploring as well.
+In general, the goal of 2026 was to look at how various models perform, where they succeed and fail, and see if writing a multi-model setup that works in tandem to cover weaknesses (consider it a next-level evolution of Boosting) would work; since models have particular strengths and weaknesses in this challenge. In 2027, this will be the primary focus, followed by exploration of Scaling Laws in this challenge. Finally, if time permits, I plan to self-finetune LLMs on a corpus of sports data, history, and sports discourse, to see if training a sort of "sports nerd" agent could also perform well. The goal is to host and train this myself.
+
+Finally, if time permits in addition, I want to explore reinforcement learning over the 16 years, instead of direct gradient descent.
 
 ## Technologies Used
 The project is developed in Python 3
