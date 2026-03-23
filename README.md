@@ -42,7 +42,8 @@ If you're curious and want to track the performance of the models, here's the ES
 
 | Round | Logistic Regression | Random Forest | XGBoost | Neural Network  |
 |--|--|--|--|--|
-| First Round | 22/32 (23 points) | 25/32 (25 points) | 26/32 (26 points) | 27/32 (27 points) |
+| First Round | 22/32 (22 points, 22 total) | 25/32 (25 points, 25 total) | 26/32 (26 points, 26 total) | 27/32 (27 points, 27 total) |
+| Second Round | 10/16 (20 points, 42 total) | 11/16 (22 points, 47 total) | 11/16 (22 points, 48 total) | 10/16 (20 points, 47 total) |
 
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
