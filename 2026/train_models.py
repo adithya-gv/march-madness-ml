@@ -105,6 +105,72 @@ def train_neural_net(X_train, y_train, X_val, y_val, input_dim, epochs=100, pati
     return model.cpu()
 
 
+def entropy_regularized_loss(logits, labels, lam=0.5, k=5.0):
+    """
+    Total Loss = BCE + lam * H(p) * wrong_ind + (1 - lam) * H(p) * right_ind
+
+    H(p) = binary Shannon entropy of the prediction probability.
+    wrong_ind / right_ind are differentiable sigmoid approximations of the
+    hard 1(wrong) / 1(right) indicator functions.
+    """
+    bce = nn.functional.binary_cross_entropy_with_logits(logits, labels)
+    p = torch.sigmoid(logits)
+    # entr(x) = -x * log(x), with entr(0) = 0 (numerically safe)
+    entropy = torch.special.entr(p) + torch.special.entr(1 - p)
+    margin = (2 * labels - 1) * logits  # positive when correct, negative when wrong
+    right_ind = torch.sigmoid(k * margin)
+    wrong_ind = torch.sigmoid(-k * margin)
+    return bce + (lam * entropy * wrong_ind + (1 - lam) * entropy * right_ind).mean()
+
+
+def train_neural_net_entropy(X_train, y_train, X_val, y_val, input_dim,
+                              epochs=100, patience=10, lam=0.5, k=5.0, seed=42):
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    model = MatchupNet(input_dim).to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+    train_ds = TensorDataset(
+        torch.tensor(X_train, dtype=torch.float32),
+        torch.tensor(y_train, dtype=torch.float32),
+    )
+    train_loader = DataLoader(train_ds, batch_size=64, shuffle=True)
+
+    X_val_t = torch.tensor(X_val, dtype=torch.float32).to(device)
+    y_val_t = torch.tensor(y_val, dtype=torch.float32).to(device)
+
+    best_val_loss = float("inf")
+    best_state = None
+    wait = 0
+
+    for epoch in range(epochs):
+        model.train()
+        for xb, yb in train_loader:
+            xb, yb = xb.to(device), yb.to(device)
+            optimizer.zero_grad()
+            loss = entropy_regularized_loss(model(xb).squeeze(), yb, lam=lam, k=k)
+            loss.backward()
+            optimizer.step()
+
+        model.eval()
+        with torch.no_grad():
+            val_logits = model(X_val_t).squeeze()
+            val_loss = entropy_regularized_loss(val_logits, y_val_t, lam=lam, k=k).item()
+
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            best_state = {k_: v.cpu().clone() for k_, v in model.state_dict().items()}
+            wait = 0
+        else:
+            wait += 1
+            if wait >= patience:
+                break
+
+    model.load_state_dict(best_state)
+    return model.cpu()
+
+
 # ── Data Pipeline ───────────────────────────────────────────────────────────────
 
 def build_feature_lookup(train_df):
@@ -306,6 +372,25 @@ def train_and_save(X, y, feature_cols, medians):
         input_dim=X_s.shape[1],
     )
     torch.save(model.state_dict(), os.path.join(MODEL_DIR, "neural_net.pt"))
+
+    # Neural Net with Entropy-Regularized Loss — hyperparameter search over lam
+    lam_candidates = [round(x, 2) for x in np.arange(0.55, 1.01, 0.01)]
+    print(f"Searching lam in {lam_candidates} for Entropy-Regularized Neural Net...")
+    X_tr, y_tr = X_shuf[:split], y_shuf[:split]
+    X_val, y_val = X_shuf[split:], y_shuf[split:]
+    best_lam, best_val_acc, best_model_entropy = None, -1, None
+    for lam in lam_candidates:
+        m = train_neural_net_entropy(X_tr, y_tr, X_val, y_val, input_dim=X_s.shape[1], lam=lam)
+        m.eval()
+        with torch.no_grad():
+            logits = m(torch.tensor(X_val, dtype=torch.float32)).squeeze()
+            preds = (torch.sigmoid(logits) > 0.5).numpy()
+        val_acc = (preds == y_val).mean()
+        print(f"  lam={lam:.2f}  val_acc={val_acc:.4f}")
+        if val_acc >= best_val_acc:
+            best_val_acc, best_lam, best_model_entropy = val_acc, lam, m
+    print(f"Best lam={best_lam:.2f} (val_acc={best_val_acc:.4f})")
+    torch.save(best_model_entropy.state_dict(), os.path.join(MODEL_DIR, "neural_net_entropy.pt"))
 
     # Save scaler, feature cols, and medians for inference
     joblib.dump(scaler, os.path.join(MODEL_DIR, "scaler.pkl"))

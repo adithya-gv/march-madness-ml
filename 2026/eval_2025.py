@@ -195,6 +195,24 @@ def main():
         "pts": pts,
     }
 
+    # Entropy-Regularized Neural Net
+    model_entropy = MatchupNet(input_dim)
+    model_entropy.load_state_dict(torch.load(
+        os.path.join(MODEL_DIR, "neural_net_entropy.pt"), map_location="cpu"
+    ))
+    model_entropy.eval()
+    with torch.no_grad():
+        logits = model_entropy(torch.tensor(X_ev_s, dtype=torch.float32)).squeeze()
+        probs = torch.sigmoid(logits).numpy()
+    preds = (probs > 0.5).astype(int)
+    pts, _, correct, _ = bracket_score(preds, y_eval, rounds)
+    results["NeuralNetEntropy"] = {
+        "acc": accuracy_score(y_eval, preds),
+        "logloss": log_loss(y_eval, probs),
+        "correct": correct,
+        "pts": pts,
+    }
+
     print(f"\nMax possible: {n_games} games, {max_pts} pts\n")
     print(f"{'Model':<15} {'Accuracy':>10} {'Log Loss':>10} {'Correct':>10} {'Pts':>8}")
     print("-" * 57)

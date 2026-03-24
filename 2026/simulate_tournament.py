@@ -6,6 +6,7 @@ winners round-by-round through the full bracket for each model.
 """
 
 import os
+import argparse
 import numpy as np
 import pandas as pd
 import joblib
@@ -60,7 +61,7 @@ def predict_winner(model, model_name, team_a, team_b, feature_lookup, scaler, te
     x = np.concatenate([feats_a, feats_b]).reshape(1, -1)
     x_scaled = scaler.transform(x)
 
-    if model_name == "NeuralNet":
+    if model_name in ("NeuralNet", "NeuralNetEntropy"):
         with torch.no_grad():
             logits = model(torch.tensor(x_scaled, dtype=torch.float32)).squeeze()
             prob_a = torch.sigmoid(logits).item()
@@ -84,7 +85,8 @@ def parse_bracket(matchups_file):
         team_names: dict of team_no → team_name
     """
     m = pd.read_csv(matchups_file)
-    r64 = m[(m["YEAR"] == 2026) & (m["CURRENT ROUND"] == 64)].reset_index(drop=True)
+    current_round = m["CURRENT ROUND"].min()
+    r64 = m[(m["YEAR"] == 2026) & (m["CURRENT ROUND"] == current_round)].reset_index(drop=True)
 
     team_names = {}
     for _, row in r64.iterrows():
@@ -187,13 +189,20 @@ def print_results(model_name, results):
 # ── Main ────────────────────────────────────────────────────────────────────────
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--bracket", default=os.path.join(DATA_DIR, "matchups.csv"),
+                        help="Path to bracket matchups CSV (default: data/matchups.csv)")
+    parser.add_argument("--test", default=os.path.join(BASE_DIR, "test.csv"),
+                        help="Path to team stats CSV (default: test.csv)")
+    args = parser.parse_args()
+
     # Load saved artifacts
     scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
     feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
     medians = joblib.load(os.path.join(MODEL_DIR, "medians.pkl"))
 
     # Load test data and build feature lookup
-    test_df = pd.read_csv(os.path.join(BASE_DIR, "test.csv"))
+    test_df = pd.read_csv(args.test)
     for col in PCT_COLS:
         if col in test_df.columns:
             test_df[col] = (
@@ -214,9 +223,7 @@ def main():
         name_lookup[tno] = row["TEAM"]
 
     # Parse bracket
-    playin_games, r64_games, playin_slots, team_names = parse_bracket(
-        os.path.join(DATA_DIR, "matchups.csv")
-    )
+    playin_games, r64_games, playin_slots, team_names = parse_bracket(args.bracket)
     # Merge name lookups
     team_names.update(name_lookup)
 
@@ -238,6 +245,14 @@ def main():
     ))
     nn_model.eval()
     models["NeuralNet"] = nn_model
+
+    # Entropy-regularized neural net (same architecture)
+    nn_entropy_model = MatchupNet(n_features)
+    nn_entropy_model.load_state_dict(torch.load(
+        os.path.join(MODEL_DIR, "neural_net_entropy.pt"), map_location="cpu", weights_only=True,
+    ))
+    nn_entropy_model.eval()
+    models["NeuralNetEntropy"] = nn_entropy_model
 
     for model_name, model in models.items():
         results = simulate_tournament(
