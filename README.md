@@ -64,13 +64,15 @@ the results of the 80 games to make its final bracket.
 2026 NN Model: 4 Layers, Vanilla Archiceture,  101184 parameters
 
 ## Future Improvements
-The first major step in 2027 will be to start predicting on the Women's Tournament, since data for that is now widely available to train on.
+The first major step in 2027 will be to start predicting on the Women's Tournament, since data for that is now widely available to train on. The second priority will be to do more hyperparameter tuning and maybe even some Neural Architecture Search for the Neural Networks.
 
-In general, the goal of 2026 was to look at how various models perform, where they succeed and fail, and see if writing a multi-model setup that works in tandem to cover weaknesses (consider it a next-level evolution of Boosting) would work; since models have particular strengths and weaknesses in this challenge. In 2027, this will be the primary focus, followed by exploration of Scaling Laws in this challenge. Finally, if time permits, I plan to self-finetune LLMs on a corpus of sports data, history, and sports discourse, to see if training a sort of "sports nerd" agent could also perform well. The goal is to host and train this myself.
+In general, the goal of 2026 was to look at how various models perform, where they succeed and fail, and see if writing a multi-model setup that works in tandem to cover weaknesses (consider it a next-level evolution of Boosting) would work; since models have particular strengths and weaknesses in this challenge. In 2027, this will be the primary focus, followed by exploration of Scaling Laws in this challenge. 
 
 In addition, one big change during the 2C portion of the tournament was the entropy model, which we found out through analysis was prone to be against upsets, since these typically happen in highly unsure situations, which have high entropy and increase the total loss. In 2027, one potential direction could be to train two neural nets, this Entropy one to make surefire predictions, and a second one called CinderellaNet, that is incentivzed to make Cinderella predictions. We would then train a metaclassifier using Stacking.
 
-Finally, if time permits in addition, I want to explore reinforcement learning over the 16 years, instead of direct gradient descent.
+If time permits, I plan to self-finetune LLMs on a corpus of sports data, history, and sports discourse, to see if training a sort of "sports nerd" agent could also perform well. The goal is to host and train this myself.
+
+Finally, if I yet have more time, I want to explore reinforcement learning over the 16 years, instead of direct gradient descent.
 
 ## Technologies Used
 The project is developed in Python 3
