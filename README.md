@@ -32,18 +32,7 @@ The data was sourced from the following [link](https://www.kaggle.com/datasets/n
 
 Data cleaning and boilerplate was done in assistance with Claude Code (and thanks for it; this normally takes forever becasue of the length data training scripts and writing the simulator.)
 
-Model Performance on 2025 Eval Set:
-- Logistic Regression: 84.13%, 127/192 points
-- Random Forest: 82.54%, 164/192 points
-- XGBoost: 76.19%, 155/192 points
-- Neural Network: 80.95%, 155/192 points
-
-If you're curious and want to track the performance of the models, here's the ESPN TC [link](https://fantasy.espn.com/games/tournament-challenge-bracket-2026/group?id=026a1e0d-e8fe-47ff-88bd-174d68026133).
-
-| Round | Logistic Regression | Random Forest | XGBoost | Neural Network  |
-|--|--|--|--|--|
-| First Round | 22/32 (22 points, 22 total) | 25/32 (25 points, 25 total) | 26/32 (26 points, 26 total) | 27/32 (27 points, 27 total) |
-| Second Round | 10/16 (20 points, 42 total) | 11/16 (22 points, 47 total) | 11/16 (22 points, 48 total) | 10/16 (20 points, 47 total) |
+When re-running all models for the Second Chance challenge, I also trained a brand NEW model, using a new loss function, one that added a regularization penalty term to penalize unconfident predictions that got lucky, using entropy prediction of the correct output. It uses the following loss function: Total Loss = Loss + (L * H(p) * 1(wrong)) + ((1 - L) * H(p) * 1(right)), where H is the [entropy function](https://en.wikipedia.org/wiki/Entropy_(information_theory)), and 1 is the indicator function; 1(wrong) = 1 if the prediction was wrong and 0 otherwise, and vice versa for 1(right). The new model, which I call EntropyNet, was then trained on this new loss function. Otherwise, the architecture of both neural networks were the same. 
 
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
@@ -93,6 +82,27 @@ Data Source for 2026: https://www.kaggle.com/datasets/nishaanamin/march-madness-
 Data Source for 2024: https://www.kaggle.com/datasets/nishaanamin/march-madness-data
 
 Data Source 2022/2023: https://www.kaggle.com/competitions/march-machine-learning-mania-2023
+
+## 2026's Predictions
+Model Performance on 2025 Eval Set:
+- Logistic Regression: 84.13%, 127/192 points
+- Random Forest: 82.54%, 164/192 points
+- XGBoost: 76.19%, 155/192 points
+- Neural Network: 78.57%, 155/192 points
+
+If you're curious and want to track the performance of the models, here's the ESPN TC [link](https://fantasy.espn.com/games/tournament-challenge-bracket-2026/group?id=026a1e0d-e8fe-47ff-88bd-174d68026133).
+
+| Round | Logistic Regression | Random Forest | XGBoost | Neural Network  |
+|--|--|--|--|--|
+| First Round | 22/32 (22 points, 22 total) | 25/32 (25 points, 25 total) | 26/32 (26 points, 26 total) | 27/32 (27 points, 27 total) |
+| Second Round | 10/16 (20 points, 42 total) | 11/16 (22 points, 47 total) | 11/16 (22 points, 48 total) | 10/16 (20 points, 47 total) |
+
+Once again, we also ran the models on the Second Chance game as well, giving the model a chance to repredict based on a reset bracket. and added in EntropyNet as well. 
+
+When adding in the new model, the predictions on the test set were:
+- EntropyNet (L = 0.66): 80.95%, 141/192 points
+
+This is interesting, as the model was more accurate, but scored less. Perhaps the regularization makes it less likely to pick upsets. We'll see how it performs on the 2C bracket. The results will be published at night on 3/26.
 
 ## 2024's Prediction Recap
 Due to time, only the 2024 version of the model was ran.
