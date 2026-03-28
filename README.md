@@ -78,8 +78,9 @@ Finally, if I yet have more time, I want to explore reinforcement learning over 
 The project is developed in Python 3
 - Pandas: Data Importing
 - Numpy: Data Manipulation
-- PyTorch: Neural Network Training for 2023/2024 Model
-- Tensorflow: Neural Network Training for 2022 Model
+- SciKit Learn: Training of 2026 Classical Models
+- PyTorch: Training of 2023/2024/2026 Neural Networks
+- Tensorflow: Training of 2022 Neural Network
 
 Data Source for 2026: https://www.kaggle.com/datasets/nishaanamin/march-madness-data
 
@@ -93,20 +94,24 @@ Model Performance on 2025 Eval Set:
 - Random Forest: 82.54%, 164/192 points
 - XGBoost: 76.19%, 155/192 points
 - Neural Network: 78.57%, 155/192 points
+- 
+When adding in the new model (trained between R32 and S16, but still using only data through 2024, and evaluating on 2025), the predictions on the test set were:
+- EntropyNet (L = 0.66): 80.95%, 141/192 points
+
+This is interesting, as the model was more accurate, but scored less. Perhaps the regularization makes it less likely to pick upsets, which get penalized heavily in terms of score. We'll see how it performs on the 2C bracket.
 
 If you're curious and want to track the performance of the models, here's the ESPN TC [link](https://fantasy.espn.com/games/tournament-challenge-bracket-2026/group?id=026a1e0d-e8fe-47ff-88bd-174d68026133).
 
-| Round | Logistic Regression | Random Forest | XGBoost | Neural Network  |
+| Round | Logistic Regression | Random Forest | XGBoost | Neural Network |
 |--|--|--|--|--|
 | First Round | 22/32 (22 points, 22 total) | 25/32 (25 points, 25 total) | 26/32 (26 points, 26 total) | 27/32 (27 points, 27 total) |
 | Second Round | 10/16 (20 points, 42 total) | 11/16 (22 points, 47 total) | 11/16 (22 points, 48 total) | 10/16 (20 points, 47 total) |
+| Sweet 16 | 4/8 (16 points, 58 total) | 5/8 (20 points, 67 total) | 3/8 (12 points, 60 total) | 5/8 (20 points, 67 total) |
 
-Once again, we also ran the models on the Second Chance game as well, giving the model a chance to repredict based on a reset bracket. and added in EntropyNet as well. 
-
-When adding in the new model, the predictions on the test set were:
-- EntropyNet (L = 0.66): 80.95%, 141/192 points
-
-This is interesting, as the model was more accurate, but scored less. Perhaps the regularization makes it less likely to pick upsets. We'll see how it performs on the 2C bracket. The results will be published at night on 3/26.
+Once again, we also ran the models on the Second Chance game as well, giving the model a chance to repredict based on a reset bracket. and added in EntropyNet as well. You can track it via the ESPN TC [link](https://fantasy.espn.com/games/mens-tournament-challenge-second-chance-bracket-2026/group?id=146a55dd-6ba9-41ce-9bf1-148b51ffef1f).
+| Round | Logistic Regression | Random Forest | XGBoost | Neural Network | EntropyNet |
+|--|--|--|--|--|
+| Sweet 16 | 6/8 (24 points, 24 total) | 6/8 (24 points, 24 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) |
 
 ## 2024's Prediction Recap
 Due to time, only the 2024 version of the model was ran.
