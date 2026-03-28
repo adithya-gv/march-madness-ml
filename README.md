@@ -1,4 +1,4 @@
-# The Annual March Madness Neural Network Challenge
+ # The Annual March Madness Neural Network Challenge
 Every year I give myself 6 hours to hack together a neural network (including data processing) to predict the outcome of 
 the March Madness bracket each year. This challenge has evolved from something rather simple when I first started it into 2022, to an investigation on the power of machine learning models, and how different models have their strengths and limitations in predicting an event with both deterministic and stochastic events. 
 
@@ -32,7 +32,7 @@ The data was sourced from the following [link](https://www.kaggle.com/datasets/n
 
 Data cleaning and boilerplate was done in assistance with Claude Code (and thanks for it; this normally takes forever becasue of the length data training scripts and writing the simulator.)
 
-When re-running all models for the Second Chance challenge, I also trained a brand NEW model, called EntropyNet. This model has the same architecture as the Neural Network from the original 2026 challenge, but it's using a new loss function, one that added a regularization penalty term to penalize unconfident predictions that got lucky, using the entropy of the prediction as the regularizer. It uses the following loss function: Total Loss = Loss + (L * H(p) * 1(wrong)) + ((1 - L) * H(p) * 1(right)), where H is the [entropy function](https://en.wikipedia.org/wiki/Entropy_(information_theory)), 1 is the indicator function; 1(wrong) = 1 if the prediction was wrong and 0 otherwise, and vice versa for 1(right), and L is the regularization parameter, adjusting how mut penality is applied to incorrect guesses and correct guesses. Obviously, L > 0.5. The neural network architecture was then trained using this new loss function.
+When re-running all models for the Second Chance challenge, I also trained a brand NEW model, called EntropyNet. This model has the same architecture as the Neural Network from the original 2026 challenge, but it's using a new loss function, one that added a regularization penalty term to penalize unconfident predictions that got lucky, using the entropy of the prediction as the regularizer. It uses the following loss function: Total Loss = Loss + (L * H(p) * 1(wrong)) + ((1 - L) * H(p) * 1(right)), where H is the [entropy function](https://en.wikipedia.org/wiki/Entropy_(information_theory)), 1 is the indicator function; 1(wrong) = 1 if the prediction was wrong and 0 otherwise, and vice versa for 1(right), and L is the regularization parameter, adjusting how much of a penalty is applied to incorrect guesses and correct guesses. Obviously, L > 0.5. The neural network architecture was then trained using this new loss function.
 
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
@@ -68,7 +68,7 @@ The first major step in 2027 will be to start predicting on the Women's Tourname
 
 In general, the goal of 2026 was to look at how various models perform, where they succeed and fail, and see if writing a multi-model setup that works in tandem to cover weaknesses (consider it a next-level evolution of Boosting) would work; since models have particular strengths and weaknesses in this challenge. In 2027, this will be the primary focus, followed by exploration of Scaling Laws in this challenge. 
 
-In addition, one big change during the 2C portion of the tournament was the entropy model, which we found out through analysis was prone to be against upsets, since these typically happen in highly unsure situations, which have high entropy and increase the total loss. In 2027, one potential direction could be to train two neural nets, this Entropy one to make surefire predictions, and a second one called CinderellaNet, that is incentivzed to make Cinderella predictions. We would then train a metaclassifier using Stacking.
+In addition, one big change during the 2C portion of the tournament was EntropyNet, which we found out through analysis was prone to be against upsets, since these typically happen in highly unsure situations, which have high entropy and increase the total loss. In 2027, one potential direction could be to train two neural nets, keeping EntropyNet as a submodel to make surefire predictions, and a second one called CinderellaNet, that is incentivzed to make Cinderella predictions and upsets. We would then train a metaclassifier using Stacking to then predict which "expert" to trust for each matchup.
 
 If time permits, I plan to self-finetune LLMs on a corpus of sports data, history, and sports discourse, to see if training a sort of "sports nerd" agent could also perform well. The goal is to host and train this myself.
 
