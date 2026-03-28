@@ -94,7 +94,7 @@ Model Performance on 2025 Eval Set:
 - Random Forest: 82.54%, 164/192 points
 - XGBoost: 76.19%, 155/192 points
 - Neural Network: 78.57%, 155/192 points
-- 
+
 When adding in the new model (trained between R32 and S16, but still using only data through 2024, and evaluating on 2025), the predictions on the test set were:
 - EntropyNet (L = 0.66): 80.95%, 141/192 points
 
