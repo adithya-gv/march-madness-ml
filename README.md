@@ -32,7 +32,7 @@ The data was sourced from the following [link](https://www.kaggle.com/datasets/n
 
 Data cleaning and boilerplate was done in assistance with Claude Code (and thanks for it; this normally takes forever becasue of the length data training scripts and writing the simulator.)
 
-When re-running all models for the Second Chance challenge, I also trained a brand NEW model, using a new loss function, one that added a regularization penalty term to penalize unconfident predictions that got lucky, using entropy prediction of the correct output. It uses the following loss function: Total Loss = Loss + (L * H(p) * 1(wrong)) + ((1 - L) * H(p) * 1(right)), where H is the [entropy function](https://en.wikipedia.org/wiki/Entropy_(information_theory)), and 1 is the indicator function; 1(wrong) = 1 if the prediction was wrong and 0 otherwise, and vice versa for 1(right). The new model, which I call EntropyNet, was then trained on this new loss function. Otherwise, the architecture of both neural networks were the same. 
+When re-running all models for the Second Chance challenge, I also trained a brand NEW model, called EntropyNet. This model has the same architecture as the Neural Network from the original 2026 challenge, but it's using a new loss function, one that added a regularization penalty term to penalize unconfident predictions that got lucky, using the entropy of the prediction as a regularization term. It uses the following loss function: Total Loss = Loss + (L * H(p) * 1(wrong)) + ((1 - L) * H(p) * 1(right)), where H is the [entropy function](https://en.wikipedia.org/wiki/Entropy_(information_theory)), 1 is the indicator function; 1(wrong) = 1 if the prediction was wrong and 0 otherwise, and vice versa for 1(right), and L is the regularization parameter, adjusting how mut penality is applied to incorrect guesses and correct guesses. Obviously, L > 0.5. The neural network architecture was then trained using this new loss function.
 
 ### 2024 Model
 The network is trained on the last 16 years of regular season and postseason games. Unlike the last two years, along with seeding, 
@@ -61,7 +61,7 @@ the results of the 80 games to make its final bracket.
 
 2024 Model: 4 Layers, Vanilla Architecture, 345425 parameters
 
-2026 NN Model: 4 Layers, Vanilla Archiceture,  101184 parameters
+2026 NN Model/EntropyNet: 4 Layers, Vanilla Archiceture,  101184 parameters
 
 ## Future Improvements
 The first major step in 2027 will be to start predicting on the Women's Tournament, since data for that is now widely available to train on. The second priority will be to do more hyperparameter tuning and maybe even some Neural Architecture Search for the Neural Networks.
