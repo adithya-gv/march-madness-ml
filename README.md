@@ -107,11 +107,23 @@ If you're curious and want to track the performance of the models, here's the ES
 | First Round | 22/32 (22 points, 22 total) | 25/32 (25 points, 25 total) | 26/32 (26 points, 26 total) | 27/32 (27 points, 27 total) |
 | Second Round | 10/16 (20 points, 42 total) | 11/16 (22 points, 47 total) | 11/16 (22 points, 48 total) | 10/16 (20 points, 47 total) |
 | Sweet 16 | 4/8 (16 points, 58 total) | 5/8 (20 points, 67 total) | 3/8 (12 points, 60 total) | 5/8 (20 points, 67 total) |
+| Elite 8 | 1/4 (8 points, 66 total) | 2/4 (16 points, 83 total) | 2/4 (16 points, 76 total) | 1/4 (8 points, 75 total) |
+| Final 4 | 1/2 (16 points, 82 total) | 1/2 (16 points, 99 total) | 0/2 (0 points, 76 total) | 1/2 (16 points, 91 total) |
+
+The maximum possible score was 192 points.
+
+Since none of the models picked either of the National Championship Game teams to actually win it all, these are the final scores, with Random Forest being the best performing model, followed by Neural Networks, then Logistic Regression, and finally XGBoost. In terms of total correct, Logistic Regression got 38/63 items correct, Random Forest got 44/63 items correct, XGBoost got 42/64 items correct, and Neural Networks got 44/63 items correct. So overall, Random Forest was the best performing model, followed by Neural Networks.
 
 Once again, we also ran the models on the Second Chance game as well, giving the model a chance to repredict based on a reset bracket. and added in EntropyNet as well. You can track it via the ESPN TC [link](https://fantasy.espn.com/games/mens-tournament-challenge-second-chance-bracket-2026/group?id=146a55dd-6ba9-41ce-9bf1-148b51ffef1f).
 | Round | Logistic Regression | Random Forest | XGBoost | Neural Network | EntropyNet |
 |--|--|--|--|--|
 | Sweet 16 | 6/8 (24 points, 24 total) | 6/8 (24 points, 24 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) |
+| Elite 8 | 1/4 (8 points, 32 total) | 2/4 (16 points, 40 total) | 2/4 (16 points, 36 total) | 2/4 (16 points, 36 total) | 1/4 (8 points, 28 total) |
+| Final 4 | 1/2 (16 points, 48 total) | 1/2 (16 points, 56 total) | 0/2 (0 points, 36 total) | 1/2 (16 points, 52 total) | 1/2 (16 points, 44 total) |
+
+The maximum possible score was 128 points.
+
+Somewhat interestingly, the trends for 2C were similar to the full challenge, with Random Forest on top, follwed by Neural Networks, then Logistic Regression, then EntropyNet, and finally XGBoost. EntropyNet performing worse than the regular Neural Network was somewhat expected when I started digging into the way the loss function worked, as the loss function penalized close guesses, which were likely to be upsets, as its very unlikely for an upset prediction to be lopsided. By forcing the model to pick against upsets, it sealed its fate when most of the Sweet 16 ended up being upsets, and the Elite 8 followed with many as well. In summary, it confirms my hypothesis that a stacking neural network combining EntropyNet with a network incentivized to pick Cinderellas as frequently as possible is the ideal move for the 2027 challenge. Since none of the models picked either of the National Championship Game teams to actually win it all, these are the final scores.
 
 ## 2024's Prediction Recap
 Due to time, only the 2024 version of the model was ran.
