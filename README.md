@@ -109,6 +109,7 @@ If you're curious and want to track the performance of the models, here's the ES
 | Sweet 16 | 4/8 (16 points, 58 total) | 5/8 (20 points, 67 total) | 3/8 (12 points, 60 total) | 5/8 (20 points, 67 total) |
 | Elite 8 | 1/4 (8 points, 66 total) | 2/4 (16 points, 83 total) | 2/4 (16 points, 76 total) | 1/4 (8 points, 75 total) |
 | Final 4 | 1/2 (16 points, 82 total) | 1/2 (16 points, 99 total) | 0/2 (0 points, 76 total) | 1/2 (16 points, 91 total) |
+| Overall Performance | 64th Percentile | 83rd Percentile | 52nd Percentile | 77th Percentile |
 
 The maximum possible score was 192 points.
 
@@ -120,6 +121,7 @@ Once again, we also ran the models on the Second Chance game as well, giving the
 | Sweet 16 | 6/8 (24 points, 24 total) | 6/8 (24 points, 24 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) | 5/8 (20 points, 20 total) |
 | Elite 8 | 1/4 (8 points, 32 total) | 2/4 (16 points, 40 total) | 2/4 (16 points, 36 total) | 2/4 (16 points, 36 total) | 1/4 (8 points, 28 total) |
 | Final 4 | 1/2 (16 points, 48 total) | 1/2 (16 points, 56 total) | 0/2 (0 points, 36 total) | 1/2 (16 points, 52 total) | 1/2 (16 points, 44 total) |
+| Overall Performance | 76th Percentile | 82nd Percentile | 61st Percentile | 80th Percentile | 72nd Percentile |
 
 The maximum possible score was 128 points.
 
